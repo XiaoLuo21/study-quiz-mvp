@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="theme-color" content="#f8f7f2" />
+<meta name="description" content="知测 QuizLab，温和、清晰的知识测验工具。英语六级、AI 通识与计算机基础，免费答题、即时解析与错题重练。" />
+<title>知测 QuizLab · 学过的知识，值得被记住</title>
+<style>
+
+:root{
+  --paper:#f8f7f2; --white:#fffefa; --ink:#232723; --mute:#777c74;
+  --pine:#2f493c; --pine2:#486d55; --line:#dfdfd5; --clay:#ac6a4b;
+  --serif:"Songti SC","Noto Serif CJK SC","Source Han Serif SC","STSong",Georgia,serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Inter","Noto Sans CJK SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+button{font:inherit;cursor:pointer}
+a{color:inherit;text-decoration:none}
+button:focus-visible,a:focus-visible{outline:2px solid #cc7c51;outline-offset:4px}
+.wrap{max-width:1270px;margin:0 auto;padding:0 56px}
+.header{position:sticky;top:0;z-index:40;background:rgba(248,247,242,.94);backdrop-filter:blur(18px);border-bottom:1px solid rgba(47,73,60,.11)}
+.topbar{height:84px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:inline-flex;align-items:center;gap:10px;font-weight:650;font-size:25px;letter-spacing:-1.35px}
+.brand-emblem{height:30px;width:30px;display:grid;place-items:center;background:var(--pine);color:var(--paper);border-radius:50%;font-family:Georgia,serif;font-size:26px;font-weight:400;line-height:1}
+.brand-dot{color:var(--clay)}
+.brand small{font-size:10px;letter-spacing:2.3px;color:#879185;font-weight:700;padding-left:10px;margin-left:7px;border-left:1px solid #c7cbbf}
+.nav{display:flex;align-items:center;gap:43px;font-size:13px;letter-spacing:.015em;font-weight:590}
+.nav a{padding:10px 0;color:#5b635b;transition:color .2s}
+.nav a:hover{color:var(--clay)}
+.nav-cta{border:1px solid var(--pine);background:var(--pine);color:#fffefa;padding:12px 21px;border-radius:999px;font-weight:630;letter-spacing:.01em;transition:background .2s,transform .2s}
+.nav-cta:hover{background:#172f25;transform:translateY(-2px)}
+main{overflow:hidden}
+.hero{display:grid;grid-template-columns:minmax(0,1.03fr) minmax(0,.97fr);min-height:655px;gap:30px;align-items:center;padding-top:84px;padding-bottom:108px}
+.hero-copy{position:relative;z-index:2;padding-top:15px}
+.eyebrow,.overline{display:inline-flex;align-items:center;gap:14px;font-size:11px;font-weight:690;letter-spacing:2.2px;text-transform:uppercase;color:var(--pine)}
+.eyebrow:before,.overline:before{content:"";display:inline-block;width:28px;height:1px;background:var(--clay)}
+h1{font-family:var(--serif);font-size:clamp(52px,5.4vw,79px);line-height:1.32;font-weight:520;letter-spacing:-3.7px;margin:29px 0 28px;white-space:nowrap}
+h1 em{font-style:normal;color:var(--pine2);position:relative}
+h1 em:after{content:"";height:8px;width:98%;position:absolute;left:0;bottom:5px;z-index:-1;background:#d5ddcd;transform:rotate(-1.5deg)}
+.subtitle{font-size:15px;color:#626b60;line-height:2.2;max-width:445px;margin:0;letter-spacing:.1px}
+.actions{display:flex;align-items:center;flex-wrap:wrap;gap:19px;margin-top:43px}
+.btn{min-height:52px;display:inline-flex;align-items:center;justify-content:center;gap:17px;border-radius:999px;padding:14px 25px;font-size:13px;font-weight:660;transition:transform .2s,background .2s,box-shadow .2s;border:1px solid transparent}
+.btn:hover:not(:disabled){transform:translateY(-2px)}
+.btn-primary{background:var(--pine);color:#fffefa;box-shadow:0 9px 17px rgba(34,56,43,.13)}
+.btn-primary:hover:not(:disabled){background:#1f382b;box-shadow:0 13px 24px rgba(34,56,43,.2)}
+.btn-outline{background:transparent;border-color:#c9ccc3;color:#3e4940}
+.btn-outline:hover{background:#edeee6}
+.btn-subtle{background:#edece5;color:#596258}
+.btn:disabled{opacity:.45;cursor:not-allowed;box-shadow:none}
+.hero-facts{display:flex;align-items:center;flex-wrap:wrap;gap:18px;margin-top:59px;padding-top:19px;border-top:1px solid #d7d8ce;max-width:425px}
+.hero-facts span{color:#80867d;font-size:11px;letter-spacing:.15px;display:inline-flex;align-items:center;gap:8px}
+.hero-facts span:not(:last-child):after{content:"·";font-size:15px;margin-left:9px;color:#a4aaa0}
+.hero-facts .tick{font-size:15px;color:var(--pine2);font-weight:600}
+.hero-visual{height:506px;max-width:570px;position:relative;isolation:isolate;display:flex;align-items:center;justify-content:center}
+.hero-visual:before{content:"";position:absolute;width:464px;height:440px;right:12px;top:28px;border-radius:240px 220px 95px 120px;background:#dce1d4;transform:rotate(-10deg)}
+.hero-visual:after{content:"";position:absolute;right:27px;top:19px;width:324px;height:324px;border:1px solid #bac5b5;border-radius:50%;transform:translate(12px,-8px)}
+.abstract-ring{position:absolute;right:-22px;bottom:12px;width:180px;height:180px;border:1px solid #bac5b5;border-radius:50%;z-index:0}
+.abstract-ring:before{content:"";position:absolute;inset:20px;border:1px solid #c3c9be;border-radius:50%}
+.poster-serial{font-size:10px;letter-spacing:2px;font-weight:750;line-height:1.8;color:#637365;position:absolute;top:29px;left:18px;z-index:1;transform:rotate(-90deg);transform-origin:top right}
+.paper-sheet{position:relative;width:min(89%,420px);min-height:430px;background:#fffef9;padding:31px 33px 25px;box-shadow:19px 22px 0 -8px #e9e6db, 0 30px 66px rgba(44,54,41,.14);border:1px solid rgba(45,62,48,.13);border-radius:6px;transform:rotate(2.5deg);z-index:1}
+.paper-heading{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:10px;letter-spacing:1.4px;font-weight:700;color:#7b8779}
+.paper-rule{border-top:1px solid #d9ddd5;margin:18px 0 23px}
+.paper-kicker{font-size:10px;letter-spacing:1.8px;color:#a2a79e;font-weight:650;margin:0 0 14px}
+.paper-title{font-family:Georgia,"Times New Roman",var(--serif);font-size:clamp(24px,2.8vw,37px);letter-spacing:-.75px;line-height:1.22;font-weight:400;margin:0 0 26px}
+.paper-title i{font-style:italic;color:#466752}
+.paper-options{display:grid;gap:9px}
+.paper-opt{display:flex;align-items:center;justify-content:space-between;gap:10px;border:1px solid #e7e8e2;border-radius:4px;padding:11px 13px;color:#757c71;font-size:12px}
+.paper-opt b{font-family:Georgia,serif;font-weight:400;font-size:13px;margin-right:8px;color:#909990}
+.paper-opt.active{background:#e6ece4;border-color:#9eae9d;color:#375943;font-weight:650}
+.paper-opt.active b{color:#375943}
+.paper-foot{border-top:1px solid #e7e9e1;margin-top:23px;padding-top:13px;display:flex;justify-content:space-between;color:#9ca39a;font-size:9px;letter-spacing:1.6px;font-weight:650}
+.stamp{position:absolute;z-index:3;right:-8px;top:9px;width:88px;height:88px;background:#ae6b4a;color:#fffdf9;border-radius:50%;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Georgia,serif;letter-spacing:1px;font-size:12px;line-height:1.6;transform:rotate(12deg);box-shadow:0 12px 22px rgba(135,79,50,.15)}
+.divider{height:1px;background:#d9dad0}
+.section{padding-top:109px;padding-bottom:76px}
+.sectionhead{display:flex;justify-content:space-between;align-items:flex-end;gap:25px;margin-bottom:35px}
+.sectionhead h2{font-family:var(--serif);font-size:clamp(31px,3.55vw,48px);font-weight:500;line-height:1.5;letter-spacing:-1.8px;margin:17px 0 5px}
+.sectionhead p{font-size:13px;color:#858b80;margin:0;line-height:1.8}
+.section-aside{font:italic 17px Georgia,serif;color:#a5a99d;white-space:nowrap}
+.coursegrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.course{position:relative;text-align:left;min-height:376px;border:1px solid transparent;border-radius:9px;padding:25px 28px 27px;display:flex;flex-direction:column;align-items:stretch;overflow:hidden;transition:transform .24s,border-color .24s,box-shadow .24s}
+.course:hover{transform:translateY(-5px);box-shadow:0 21px 35px rgba(33,49,36,.08)}
+.course.selected{outline:2px solid var(--pine);outline-offset:4px}
+.course:nth-child(1){background:#dce2d7;color:#273e32}
+.course:nth-child(2){background:#eee1d4;color:#473c31}
+.course:nth-child(3){background:#e3e4df;color:#37403c}
+.course-meta{display:flex;align-items:center;justify-content:space-between;font-size:10px;letter-spacing:1.8px;font-weight:780;opacity:.7}
+.course-check{font-size:20px;font-weight:400;line-height:1}
+.course-art{font-family:Georgia,"Times New Roman",var(--serif);font-size:98px;line-height:1;letter-spacing:-9px;font-weight:400;align-self:flex-end;margin-top:17px;margin-right:17px;transition:transform .25s;opacity:.86}
+.course:nth-child(2) .course-art{font-size:101px;color:#a26a4b;transform:rotate(-5deg)}
+.course:nth-child(3) .course-art{font-size:79px;letter-spacing:-10px;margin-top:28px;margin-right:7px}
+.course:hover .course-art{transform:translateY(-5px)}
+.course:nth-child(2):hover .course-art{transform:rotate(10deg) translateY(-5px)}
+.course-content{margin-top:auto}
+.course-tag{display:inline-block;font-size:10px;font-weight:730;border:1px solid currentColor;padding:5px 9px;border-radius:999px;opacity:.7;letter-spacing:.3px}
+.course h3{margin:13px 0 9px;font-family:var(--serif);font-weight:600;font-size:25px;letter-spacing:-.6px}
+.course p{font-size:12px;line-height:1.9;opacity:.75;min-height:44px;margin:0 0 22px}
+.course-footnote{display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(41,58,43,.18);padding-top:15px;font-size:11px;font-weight:630}
+.course-footnote span{font-size:18px;line-height:1}
+.startrow{display:flex;justify-content:center;margin-top:36px}
+.startrow .btn{min-width:190px}
+.analytics{position:relative;margin-top:58px;background:#2e483a;color:#fbfcf5;min-height:205px;padding:40px 52px;border-radius:9px;display:grid;grid-template-columns:minmax(0,1.8fr) .6fr .7fr;gap:24px;align-items:center;overflow:hidden}
+.analytics:after{content:"";height:300px;width:300px;border:1px solid rgba(239,241,230,.11);border-radius:50%;position:absolute;right:75px;top:-232px;box-shadow:0 0 0 28px rgba(244,246,235,.025),0 0 0 57px rgba(244,246,235,.025);pointer-events:none}
+.analytics .eyebrow{color:#c7cfbd;letter-spacing:1.7px;font-size:10px}
+.analytics .eyebrow:before{background:#c7a08a;width:22px}
+.analytics h3{font-family:var(--serif);font-size:28px;font-weight:450;letter-spacing:-1px;margin:12px 0 6px}
+.analytics p{font-size:11px;color:#abbcb0;margin:0;line-height:1.8}
+.analytics .stat{border-left:1px solid rgba(249,250,244,.22);padding-left:27px;position:relative;z-index:1}
+.analytics strong{font-family:Georgia,var(--serif);font-size:48px;font-weight:400;letter-spacing:-1.5px;display:block;line-height:1.1}
+.analytics .stat span{font-size:11px;color:#b6c5b9;display:block;margin-top:14px}
+.method-section{padding-top:132px;padding-bottom:105px}
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:34px;margin-top:38px}
+.step{border-top:1px solid #c8cdc3;padding:23px 0 8px}
+.step b{font:italic 27px Georgia,serif;font-weight:400;color:#a46b51}
+.step h3{font-family:var(--serif);font-weight:600;font-size:22px;margin:21px 0 13px;letter-spacing:-.5px}
+.step p{color:#747c71;font-size:13px;line-height:2;margin:0;max-width:280px}
+.footer{border-top:1px solid #d9dad0;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;color:#858d83;font-size:11px;padding-top:32px;padding-bottom:40px;margin-top:8px}
+.mutedlink{background:transparent;color:#717d72;border:0;text-decoration:underline;text-underline-offset:3px;font-size:11px;padding:0}
+.screen{max-width:825px;margin:79px auto 108px;padding:0 23px;min-height:565px}
+.hide{display:none!important}
+.quiztop{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:22px}
+.back{padding:10px 0;background:transparent;border:0;font-size:13px;color:#656e65}
+.back:hover{text-decoration:underline;text-underline-offset:4px}
+.quizbadge{border:1px solid #c8d2c3;background:#eff1ea;border-radius:999px;padding:8px 15px;color:#516756;font-size:11px;letter-spacing:.5px;font-weight:710}
+.quizcard{padding:52px 55px 49px;border-radius:10px;background:var(--white);border:1px solid #e6e6df;box-shadow:0 22px 80px rgba(56,62,46,.045)}
+.qmeta{display:flex;justify-content:space-between;gap:16px;color:#7e867d;font-size:11px;font-weight:710;letter-spacing:.5px;margin-bottom:18px}
+.progress{height:3px;background:#e4e8e1;overflow:hidden}
+.progress-fill{display:block;background:#486b52;width:0;height:100%;transition:width .3s}
+.question{font-family:var(--serif);font-weight:600;font-size:clamp(23px,3.3vw,34px);line-height:1.6;letter-spacing:-.6px;margin:47px 0 34px}
+.answers{display:grid;gap:11px}
+.answer{display:flex;align-items:center;text-align:left;gap:18px;padding:16px 18px;background:#fffefa;color:#434d42;border:1px solid #dde1d9;border-radius:6px;font-size:14px;font-weight:520;min-height:65px;transition:background .2s,border-color .2s,transform .2s}
+.answer:hover:not(:disabled){background:#f1f5ed;border-color:#9eb09f;transform:translateX(3px)}
+.answer:disabled{cursor:default}
+.answer .letter{display:grid;place-items:center;width:31px;height:31px;border:1px solid #d2dbcf;background:#f0f3ec;flex:none;font-family:Georgia,serif;color:#637768;border-radius:50%;font-size:13px}
+.answer.correct{background:#edf4e8;border-color:#6b9274;color:#2b623e}
+.answer.correct .letter{color:#fff;background:#4d7958;border-color:#4d7958}
+.answer.wrong{background:#faf1eb;border-color:#b78370;color:#a35f4e}
+.answer.wrong .letter{color:#fff;background:#ae705b;border-color:#ae705b}
+.explanation{margin-top:25px;background:#f0f4ed;padding:19px 22px;color:#536455;font-size:13px;line-height:1.9;border-left:3px solid #527c5b}
+.explanation strong{display:block;color:#33533a;font-size:13px;margin-bottom:6px}
+.quizbottom{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-top:38px}
+.hint{color:#999e95;font-size:11px}
+.result-hero{text-align:center;padding:16px 0 16px}
+.medal{width:61px;height:61px;margin:0 auto 24px;border:1px solid #c8d9c9;border-radius:50%;display:grid;place-items:center;color:#4c7357;background:#e8f0e5;font-family:Georgia,serif;font-size:30px}
+.result-hero h2{font-family:var(--serif);font-size:31px;letter-spacing:-.5px;font-weight:600;margin:0 0 12px}
+.result-hero p{margin:0;color:#8a9187;font-size:13px;line-height:1.8}
+.score{color:var(--pine);font:400 78px Georgia,var(--serif);margin:19px 0 8px;letter-spacing:-4px}
+.score small{font:450 17px var(--sans);letter-spacing:0;color:#7b8a7c}
+.summary{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid #e3e5dd;margin:21px 0 35px}
+.summary div{padding:21px 12px;text-align:center}
+.summary div:not(:last-child){border-right:1px solid #e3e5dd}
+.summary strong{font:400 29px Georgia,var(--serif);display:block}
+.summary span{display:block;font-size:11px;color:#878d85;margin-top:8px}
+.reviewbox{border-top:1px solid #d9ddd5;padding-top:25px}
+.reviewbox h3{font-size:16px;font-weight:670;margin:0 0 16px}
+.wrongitem{padding:16px 0;border-bottom:1px solid #e9ebe4;font-size:13px;line-height:1.95}
+.wrongitem strong{display:block;font-weight:650}
+.wrongitem span{color:#858c82}
+.result-actions{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:38px}
+#announce{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}
+@media(max-width:1120px){.wrap{padding:0 35px}.hero{padding-top:63px;gap:12px}.hero-visual{transform:scale(.92);transform-origin:center}.hero h1{font-size:clamp(50px,5.9vw,70px)}.course{padding:23px}}
+@media(max-width:900px){.hero{grid-template-columns:1fr;min-height:0;gap:0;padding-top:80px;padding-bottom:65px}.hero-copy{max-width:700px}.hero-visual{transform:scale(1);margin:10px auto 0;max-width:580px;width:100%}.section{padding-top:82px}.analytics{padding:32px;grid-template-columns:1.3fr 1fr 1fr}.analytics h3{font-size:22px}.analytics strong{font-size:39px}.course-art{font-size:78px}.course h3{font-size:21px}}
+@media(max-width:650px){.wrap{padding:0 22px}.topbar{height:68px}.brand{font-size:23px}.brand small{display:none}.nav{gap:14px;font-size:12px}.nav a:nth-child(2){display:none}.nav-cta{padding:10px 14px;font-size:12px}.hero{padding-top:56px;padding-bottom:48px}.hero-copy{padding-top:0}.eyebrow{font-size:10px;letter-spacing:1.5px}h1{font-size:clamp(43px,8.7vw,61px);line-height:1.36;letter-spacing:-2px;margin:25px 0 20px}.subtitle{font-size:13px;line-height:2}.actions{margin-top:29px;gap:10px}.actions .btn{min-height:48px;padding:12px 20px}.hero-facts{margin-top:33px;gap:8px;padding-top:17px}.hero-facts span{font-size:10px;gap:5px}.hero-facts span:not(:last-child):after{margin-left:2px}.hero-visual{height:400px;width:100%;margin:34px auto 0;max-width:430px}.hero-visual:before{width:320px;height:310px;right:0;top:45px}.hero-visual:after{width:240px;height:240px;right:-9px;top:20px}.abstract-ring{width:132px;height:132px;right:-6px}.poster-serial{left:5px}.paper-sheet{width:min(87%,345px);padding:21px 23px;min-height:365px;box-shadow:14px 15px 0 -8px #e9e6db,0 18px 45px rgba(44,54,41,.14)}.paper-title{font-size:27px;margin-bottom:20px}.paper-rule{margin:15px 0 19px}.paper-opt{padding:9px 11px;font-size:11px}.stamp{width:66px;height:66px;right:-6px;top:29px;font-size:10px}.section{padding-top:72px;padding-bottom:33px}.sectionhead{align-items:flex-start;gap:10px;margin-bottom:25px}.sectionhead h2{font-size:33px}.section-aside{display:none}.coursegrid{grid-template-columns:1fr;gap:13px}.course{min-height:278px;padding:22px 24px}.course-art{font-size:79px;position:absolute;top:35px;right:35px}.course:nth-child(2) .course-art{font-size:82px}.course:nth-child(3) .course-art{font-size:73px}.course-content{max-width:100%;padding-top:100px}.course h3{font-size:23px}.course p{max-width:295px;min-height:0}.startrow{margin-top:24px}.analytics{margin-top:46px;padding:30px 27px;grid-template-columns:repeat(2,1fr);gap:26px 0}.analytics .analytic-intro{grid-column:1/-1}.analytics .stat{padding-left:15px}.analytics .stat:nth-of-type(2){border-left:0;padding-left:0}.analytics h3{font-size:27px}.analytics strong{font-size:40px}.method-section{padding-top:87px;padding-bottom:69px}.steps{grid-template-columns:1fr;gap:20px}.step{padding-top:17px}.step h3{margin:9px 0}.step p{max-width:100%}.footer{padding-top:22px;padding-bottom:27px;font-size:10px}.screen{margin:38px auto 80px;padding:0 14px}.quizcard{padding:32px 22px}.question{font-size:24px;margin:31px 0 26px}.answer{font-size:13px;min-height:58px;padding:12px}.quizbottom{align-items:stretch;flex-direction:column}.quizbottom .btn{width:100%}.hint{text-align:center;order:2}.score{font-size:67px}.result-actions .btn{width:100%}.summary div{padding:16px 7px}.summary strong{font-size:23px}.summary span{font-size:10px}}
+@media(max-width:365px){h1{font-size:40px}.paper-sheet{width:92%}.nav{gap:10px}.nav a{display:none}.stamp{right:-5px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+
+</style>
+</head>
+<body>
+<header class="header"><div class="wrap topbar">
+  <a href="#home" class="brand" id="logo" aria-label="知测 QuizLab，返回首页"><span class="brand-emblem" aria-hidden="true">✳</span><span>知测<span class="brand-dot">.</span></span><small>QUIZLAB</small></a>
+  <nav class="nav" aria-label="主要导航"><a href="#courses">探索题库</a><a href="#how">学习方式</a><button class="nav-cta" id="nav-start">开始练习 ↗</button></nav>
+</div></header>
+<main>
+ <div id="home-view">
+   <section class="wrap hero" id="home" aria-labelledby="hero-title">
+     <div class="hero-copy">
+       <span class="eyebrow">QUIZLAB <span aria-hidden="true">/</span> A MORE INTENTIONAL WAY TO LEARN</span>
+       <h1 id="hero-title">学过的知识，<br><em>值得被记住。</em></h1>
+       <p class="subtitle">给好奇心一个清晰的答案。从选择一个主题，到收获一份学习反馈。用几分钟，认真对待每一点进步。</p>
+       <div class="actions"><button class="btn btn-primary" id="hero-start">开始一次练习 <span aria-hidden="true">↗</span></button><a class="btn btn-outline" href="#how">了解学习方式 <span aria-hidden="true">↗</span></a></div>
+       <div class="hero-facts"><span><b class="tick">✓</b> 无需注册</span><span><b class="tick">✓</b> 免费使用</span><span><b class="tick">✓</b> 错题可回练</span></div>
+     </div>
+     <div class="hero-visual" aria-label="练习卡片界面示意图">
+       <div class="abstract-ring" aria-hidden="true"></div><div class="poster-serial" aria-hidden="true">THE STUDY<br>COLLECTION / 001</div>
+       <div class="paper-sheet" aria-hidden="true"><div class="paper-heading"><span>QUIZLAB / ENGLISH</span><span>03 — 08</span></div><div class="paper-rule"></div>
+         <p class="paper-kicker">A QUESTION FOR TODAY</p>
+         <h2 class="paper-title">What does<br><i>“significant”</i><br>mean?</h2>
+         <div class="paper-options"><div class="paper-opt"><span><b>A</b> 临时的</span></div><div class="paper-opt active"><span><b>B</b> 重要的；显著的</span><span>✓</span></div><div class="paper-opt"><span><b>C</b> 隐秘的</span></div><div class="paper-opt"><span><b>D</b> 普通的</span></div></div>
+         <div class="paper-foot"><span>LEARN / REFLECT / GROW</span><span>↗</span></div>
+       </div><div class="stamp" aria-hidden="true">KEEP<br>CURIOUS<br>✳</div>
+     </div>
+   </section>
+   <div class="divider" aria-hidden="true"></div>
+   <section class="wrap section" id="courses" aria-labelledby="course-title">
+     <div class="sectionhead"><div><span class="overline">01 / SELECT YOUR SUBJECT</span><h2 id="course-title">从今天想弄懂的开始。</h2><p>三个精心整理的知识主题。你只需要选择一个。</p></div><span class="section-aside">A quiet space for curiosity.</span></div>
+     <div class="coursegrid" id="course-grid" role="group" aria-label="选择测验题库"></div>
+     <div class="startrow"><button class="btn btn-primary" id="course-start">开始本组测验 <span aria-hidden="true">↗</span></button></div>
+   </section>
+   <section class="wrap"><div class="analytics" aria-label="本设备学习记录">
+     <div class="analytic-intro"><span class="eyebrow">YOUR LEARNING RECORD</span><h3>每一次作答，都有迹可循。</h3><p>只保存在当前浏览器，不需要账号，也不上传个人数据。</p></div>
+     <div class="stat"><strong id="sessions">0</strong><span>本设备完成练习</span></div><div class="stat"><strong id="accuracy">—</strong><span>本设备历史正确率</span></div>
+   </div></section>
+   <section class="wrap method-section" id="how" aria-labelledby="how-title">
+     <div class="sectionhead"><div><span class="overline">02 / THE PRACTICE</span><h2 id="how-title">真正有效的学习，<br>往往从简单开始。</h2><p>没有复杂的设置，把注意力留给知识本身。</p></div><span class="section-aside">Small steps. Lasting progress.</span></div>
+     <div class="steps"><article class="step"><b>01.</b><h3>选一个主题</h3><p>英语六级、AI 通识、计算机基础。从当下最需要的地方开始。</p></article><article class="step"><b>02.</b><h3>专注完成练习</h3><p>每组八道精选问题。即刻反馈对错，并解释答案背后的知识点。</p></article><article class="step"><b>03.</b><h3>记住有价值的部分</h3><p>完成后查看成绩与错题，针对尚未掌握的内容，再练一次。</p></article></div>
+   </section>
+ </div>
+ <section class="screen hide" id="quiz-view" aria-labelledby="question-title"><div class="quiztop"><button class="back" id="quiz-back">← 返回题库</button><span class="quizbadge" id="quiz-topic">英语六级</span></div><div class="quizcard">
+   <div class="qmeta"><span id="q-number">第 1 题 / 共 8 题</span><span id="q-percent">0%</span></div><div class="progress" role="progressbar" aria-label="答题进度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="quiz-progress"><span class="progress-fill" id="progress-fill"></span></div>
+   <h2 class="question" id="question-title"></h2><div class="answers" id="answers" role="group" aria-label="选择答案"></div><div class="explanation hide" id="explanation" aria-live="polite"></div>
+   <div class="quizbottom"><span class="hint">快捷键：按 1–4 作答，Enter 进入下一题</span><button class="btn btn-primary" id="next-question" disabled>下一题 ↗</button></div>
+ </div></section>
+ <section class="screen hide" id="result-view" aria-label="测验结果"><div class="quiztop"><button class="back" id="result-back">← 返回题库</button><span class="quizbadge">本轮学习记录</span></div><div class="quizcard">
+   <div class="result-hero"><div class="medal" aria-hidden="true">✳</div><h2>这一轮，完成得很认真。</h2><p id="result-message">每次练习，都让进步更具体。</p><div class="score" id="score">0 <small>分</small></div></div>
+   <div class="summary"><div><strong id="right-num">0</strong><span>回答正确</span></div><div><strong id="wrong-num">0</strong><span>需要复习</span></div><div><strong id="time-num">0 分</strong><span>本轮用时</span></div></div>
+   <div class="reviewbox" id="review-box"><h3>本轮错题回顾</h3><div id="wrong-list"></div></div><div class="result-actions"><button class="btn btn-primary" id="retry-wrong">重练本轮错题 ↗</button><button class="btn btn-outline" id="retry-all">再练一次</button><button class="btn btn-subtle" id="go-home">返回题库</button></div>
+ </div></section>
+</main>
+<footer class="wrap footer"><span>© 2026 知测 QuizLab · 为每一份好奇心留一页笔记。</span><span>数据仅保存在本设备　<button class="mutedlink" id="reset-data">清除本机学习记录</button></span></footer>
+<div id="announce" role="status" aria-live="polite"></div>
+  <script>
+    "use strict";
+    const BANKS=[
+      {id:"english",name:"大学英语六级",tag:"词汇巩固",icon:"📘",description:"高频词汇、词义辨析，让单词记忆更扎实。",questions:[
+        {q:"Which word is closest in meaning to “significant”?",a:["Trivial","Important","Temporary","Secret"],c:1,e:"significant 意为“重要的；显著的”，近义词是 important。"},
+        {q:"What does “adequate” mean?",a:["充足的；合适的","昂贵的","微不足道的","模糊的"],c:0,e:"adequate 表示数量或质量足以满足需求，如 adequate preparation（充分准备）。"},
+        {q:"Choose the synonym of “reluctant”.",a:["Eager","Confident","Unwilling","Patient"],c:2,e:"reluctant 意为“不情愿的”，与 unwilling 语义接近。"},
+        {q:"What does “contribute to” mean?",a:["忽略","促成；有助于","反对","替代"],c:1,e:"contribute to 常表示“促成、有助于”，后接名词或动名词。"},
+        {q:"Which word means “不可避免的”?",a:["Inevitable","Invisible","Individual","Innovative"],c:0,e:"inevitable 意为“不可避免的”；invisible 表示“看不见的”。"},
+        {q:"Choose the correct meaning of “allocate”.",a:["评估","收集","分配","取消"],c:2,e:"allocate 表示“分配”，常搭配 allocate resources（分配资源）。"},
+        {q:"What does “be prone to” mean?",a:["以……为荣","倾向于；易于","拒绝","依赖于"],c:1,e:"be prone to 表示“容易发生某事；倾向于”，例如 be prone to errors。"},
+        {q:"Which is the best meaning of “substantial”?",a:["大量的；可观的","肤浅的","偶然的","短暂的"],c:0,e:"substantial 可表示“数量很大的、可观的”或“实质性的”。"}
+      ]},
+      {id:"ai",name:"AI 通识素养",tag:"热门主题",icon:"🧠",description:"大模型、提示词、知识检索，快速理解 AI 基础。",questions:[
+        {q:"大语言模型（LLM）的主要能力更接近以下哪项？",a:["按固定模板只输出一段话","基于上下文预测并生成语言","直接读取用户大脑","保证所有回答百分百正确"],c:1,e:"大语言模型利用训练中学习到的模式，根据上下文生成序列，输出仍需核实。"},
+        {q:"以下哪种提示词更有助于获得稳定输出？",a:["随便写一句“弄一下”","只要求输出快","明确目标、输入和约束","一次性省略所有背景"],c:2,e:"清晰的任务目标、相关上下文、格式和约束通常更容易得到可检验的结果。"},
+        {q:"RAG 中的“检索增强”通常是指什么？",a:["先检索相关材料，再辅助模型回答","给电脑增加内存","让模型永远离线","把图片变成视频"],c:0,e:"RAG 通常先检索外部资料，再将相关内容提供给模型作为回答上下文。"},
+        {q:"模型出现“幻觉”通常指？",a:["回复速度变慢","输出看似可信但实际不准确的内容","自动开启浏览器","把文字转成语音"],c:1,e:"幻觉是模型生成错误或无依据内容的现象，重要信息应独立核查。"},
+        {q:"在公开 AI 服务里处理隐私资料，首先应该？",a:["直接上传身份证和密码","先确认隐私规则并做好脱敏","随意公开 API 密钥","默认所有内容都会保密"],c:1,e:"减少不必要的个人数据暴露，检查服务政策并脱敏是基本做法。"},
+        {q:"Agent 调用外部工具时，哪项做法更稳妥？",a:["给予所有系统最高权限","不记录任务步骤","设置最小权限和操作确认","关闭错误检查"],c:2,e:"最小权限、操作审计及高风险操作确认，有利于降低误操作风险。"},
+        {q:"以下哪一项更适合用来评价问答质量？",a:["仅看答案字数","只看生成速度","核对事实准确性与任务符合度","只看语气"],c:2,e:"评价应重点关注准确性、相关性及是否符合用户需求。"},
+        {q:"使用 AI 生成学习内容时，最合理的策略是？",a:["无条件照抄","核验后再整理吸收","删除所有来源","避免自主思考"],c:1,e:"AI 输出是学习辅助材料，关键结论应核验并结合个人理解。"}
+      ]},
+      {id:"computer",name:"计算机基础",tag:"快速入门",icon:"💻",description:"网页原理、网络协议、编程常识，建立基础认知。",questions:[
+        {q:"HTML 在网页开发中主要负责什么？",a:["页面结构和内容","操作系统启动","数据库备份","硬件散热"],c:0,e:"HTML 描述网页的语义结构，CSS 负责样式，JavaScript 常负责交互。"},
+        {q:"CSS 最主要的用途是？",a:["储存密码","决定页面视觉样式","编译操作系统","配置 DNS 服务器"],c:1,e:"CSS 控制布局、颜色、排版和响应式样式等视觉表现。"},
+        {q:"JavaScript 在这个小测验网页里的主要作用是？",a:["制作纸质试卷","处理交互、判分与结果","增加服务器机架","购买域名"],c:1,e:"JavaScript 可以监听用户操作、计算分数并动态更新网页内容。"},
+        {q:"HTTP 状态码 404 常见含义是什么？",a:["请求成功","服务器永久关机","资源未找到","浏览器已安装"],c:2,e:"404 Not Found 表示请求的资源未被找到，并不必然意味着整个网站故障。"},
+        {q:"Git 的最典型用途是？",a:["版本控制与协作","图像裁剪","网络测速","电池管理"],c:0,e:"Git 能保存代码版本历史，方便比较变化和协作开发。"},
+        {q:"GitHub Pages 适合托管哪类内容？",a:["需要持续运行的复杂数据库服务","静态 HTML/CSS/JavaScript 网站","私有加密密钥服务","Windows 桌面进程"],c:1,e:"GitHub Pages 提供静态站点托管，不提供直接运行传统后端服务器的能力。"},
+        {q:"localStorage 的数据主要保存在哪里？",a:["当前浏览器的本地存储","全体用户共享的云数据库","网页截图中","Git 提交记录中"],c:0,e:"localStorage 保存在浏览器端，同一站点在不同设备的记录不会自动同步。"},
+        {q:"响应式网页设计主要解决什么问题？",a:["改变设备硬件","让布局适应不同屏幕","提高网速到无限","免除代码测试"],c:1,e:"响应式布局使页面在手机、平板和桌面等不同视口下保持可用。"}
+      ]}
+    ];
+    const STORAGE_KEY="quizlab.study.v1";
+    let stored={sessions:0,correct:0,total:0};
+    try {let data=JSON.parse(localStorage.getItem(STORAGE_KEY)||"null");if(data&&["sessions","correct","total"].every(k=>Number.isFinite(data[k])&&data[k]>=0))stored=data;}catch(err){console.info("本地存储不可用，使用内存会话",err);}
+    const $=id=>document.getElementById(id);
+    const announce=msg=>{$("announce").textContent=msg;};
+    let selected="english",deck=[],index=0,answersGiven=[],startedAt=0,mode="all",running=false;
+    function persist(){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(stored));}catch(err){console.info("浏览器拒绝写入本地记录",err);}}
+    function updateStats(){$("sessions").textContent=stored.sessions;$("accuracy").textContent=stored.total?Math.round(stored.correct/stored.total*100)+"%":"—";}
+    function paintCourses(){const grid=$("course-grid");grid.textContent="";BANKS.forEach(bank=>{const b=document.createElement("button");b.type="button";b.className="course"+(selected===bank.id?" selected":"");b.setAttribute("aria-pressed",String(selected===bank.id));b.innerHTML=`<span class="course-meta"><span>0${BANKS.indexOf(bank)+1} / TOPIC</span><span class="course-check" aria-hidden="true">${selected===bank.id?"✓":"↗"}</span></span><span class="course-art" aria-hidden="true">${bank.id==="english"?"Aa":bank.id==="ai"?"✳":"{ }"}</span><span class="course-content"><span class="course-tag">${bank.tag}</span><h3>${bank.name}</h3><p>${bank.description}</p><span class="course-footnote">${String(bank.questions.length).padStart(2,"0")} 道精选练习 <span aria-hidden="true">↗</span></span></span>`;b.addEventListener("click",()=>{selected=bank.id;paintCourses();announce("已选择"+bank.name);});grid.append(b);});}
+    function show(which){$("home-view").classList.toggle("hide",which!=="home");$("quiz-view").classList.toggle("hide",which!=="quiz");$("result-view").classList.toggle("hide",which!=="result");window.scrollTo({top:0,behavior:"instant"});}
+    function startQuiz(list=null){const bank=BANKS.find(x=>x.id===selected);deck=(list||bank.questions).map(q=>({...q,a:[...q.a]}));if(deck.length===0)return;mode=list?"wrong":"all";index=0;answersGiven=[];startedAt=Date.now();running=true;$("quiz-topic").textContent=bank.name+(mode==="wrong"?" · 错题重练":"");show("quiz");renderQuestion();}
+    function renderQuestion(){const q=deck[index];if(!q)return;$("q-number").textContent=`第 ${index+1} 题 / 共 ${deck.length} 题`;let progress=Math.round(index/deck.length*100);$("q-percent").textContent=progress+"%";$("quiz-progress").setAttribute("aria-valuenow",progress);$("progress-fill").style.width=progress+"%";$("question-title").textContent=q.q;$("explanation").classList.add("hide");$("explanation").textContent="";$("next-question").disabled=true;$("next-question").textContent=index===deck.length-1?"查看学习报告 →":"下一题 →";const a=$("answers");a.textContent="";q.a.forEach((option,i)=>{const b=document.createElement("button");b.type="button";b.className="answer";b.innerHTML=`<span class="letter" aria-hidden="true">${"ABCD"[i]}</span>`;const span=document.createElement("span");span.textContent=option;b.append(span);b.setAttribute("aria-label",`选项 ${"ABCD"[i]}：${option}`);b.addEventListener("click",()=>choose(i));a.append(b);});announce(`第${index+1}题：${q.q}`);}
+    function choose(choice){if(!running||answersGiven.length>index)return;const q=deck[index];answersGiven.push(choice);Array.from($("answers").children).forEach((button,i)=>{button.disabled=true;if(i===q.c)button.classList.add("correct");if(i===choice&&choice!==q.c)button.classList.add("wrong");});const ok=choice===q.c;$("explanation").classList.remove("hide");$("explanation").replaceChildren();const title=document.createElement("strong");title.textContent=ok?"✓ 回答正确":"✦ 再记住这个知识点";const desc=document.createElement("span");desc.textContent=q.e;$("explanation").append(title,desc);$("next-question").disabled=false;announce((ok?"正确。":"回答错误。")+q.e);}
+    function next(){if(answersGiven.length<=index)return;if(index<deck.length-1){index++;renderQuestion();}else complete();}
+    function complete(){running=false;const count=deck.reduce((n,q,i)=>n+(answersGiven[i]===q.c?1:0),0);const wrong=deck.filter((q,i)=>answersGiven[i]!==q.c);const score=Math.round(count/deck.length*100);const seconds=Math.max(0,Math.round((Date.now()-startedAt)/1000));stored.sessions++;stored.correct+=count;stored.total+=deck.length;persist();updateStats();$("score").innerHTML=score+' <small>分</small>';$("right-num").textContent=count;$("wrong-num").textContent=wrong.length;$("time-num").textContent=seconds<60?`${seconds} 秒`:`${Math.floor(seconds/60)}分${seconds%60}秒`;$("result-message").textContent=score===100?"全对！保持这份稳定的好状态。":score>=75?"基础不错，再补齐几个易错点。":"知识点已经定位，重练一遍更牢固。";$("wrong-list").textContent="";if(wrong.length===0){const p=document.createElement("p");p.textContent="本轮全部答对，没有错题。";p.style.color="#355a47";$("wrong-list").append(p);}else{wrong.forEach(q=>{const div=document.createElement("div");div.className="wrongitem";const t=document.createElement("strong");t.textContent=q.q;const d=document.createElement("span");d.textContent="正确答案："+q.a[q.c]+"。"+q.e;div.append(t,d);$("wrong-list").append(div);});}$("retry-wrong").disabled=wrong.length===0;$("retry-wrong").onclick=()=>startQuiz(wrong);show("result");announce(`测验完成，得分 ${score} 分。`);}
+    function goHome(){running=false;show("home");paintCourses();}
+    function startFromNav(){goHome();$("courses").scrollIntoView({behavior:"smooth"});}
+    $("nav-start").onclick=startFromNav;$("hero-start").onclick=startFromNav;$("course-start").onclick=()=>startQuiz();$("quiz-back").onclick=goHome;$("next-question").onclick=next;$("result-back").onclick=goHome;$("retry-all").onclick=()=>startQuiz();$("go-home").onclick=goHome;$("logo").onclick=()=>{goHome();};
+    $("reset-data").onclick=()=>{if(!confirm("确认清除当前浏览器保存的练习次数和正确率？此操作不能撤销。"))return;stored={sessions:0,correct:0,total:0};persist();updateStats();announce("本机学习记录已清除。");};
+    window.addEventListener("keydown",e=>{if(!running||$("quiz-view").classList.contains("hide")||e.altKey||e.ctrlKey||e.metaKey)return;if(["1","2","3","4"].includes(e.key)){const n=Number(e.key)-1;if(answersGiven.length<=index)choose(n);}else if(e.key==="Enter"&&answersGiven.length>index&&!$("next-question").disabled){e.preventDefault();next();}});
+    paintCourses();updateStats();
+  </script>
+</body>
+</html>
