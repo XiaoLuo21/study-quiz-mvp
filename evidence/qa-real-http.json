@@ -1,0 +1,116 @@
+{
+  "base_url": "https://5d66d26eaa57dc.lhr.life/",
+  "time_utc": "2026-10-22T17:14:36.890989+00:00",
+  "domain_origin": "5d66d26eaa57dc.lhr.life",
+  "passed": 21,
+  "failed": 0,
+  "results": [
+    {
+      "case": "T01 首页加载",
+      "ok": true,
+      "detail": "title=知测 QuizLab · 学过的知识，值得被记住; 题库=['大学英语六级', 'AI 通识素养', '计算机基础']"
+    },
+    {
+      "case": "T01b 桌面无横向溢出",
+      "ok": true,
+      "detail": "{\"sw\": 1280, \"cw\": 1280, \"w\": 1280}"
+    },
+    {
+      "case": "T02 切换 AI 题库",
+      "ok": true,
+      "detail": "topic=AI 通识素养; 第 1 题 / 共 8 题"
+    },
+    {
+      "case": "T03 错选显示答案与解析",
+      "ok": true,
+      "detail": "解析=✦ 再记住这个知识点\n大语言模型利用训练中学习到的模式，根据上下文生成序列，输出仍需核实。"
+    },
+    {
+      "case": "T04a AI 题库整轮完成",
+      "ok": true,
+      "detail": "score=88 分, right=7, wrong=1"
+    },
+    {
+      "case": "T04b 错题清单为本轮错题",
+      "ok": true,
+      "detail": "错题条数=1"
+    },
+    {
+      "case": "T05 错题重练只出现本轮错题",
+      "ok": true,
+      "detail": "第 1 题 / 共 1 题"
+    },
+    {
+      "case": "T06 全对时错题重练禁用",
+      "ok": true,
+      "detail": "score=100 分, disabled=True"
+    },
+    {
+      "case": "T07a 首页本机统计累计",
+      "ok": true,
+      "detail": "sessions=2, accuracy=89%"
+    },
+    {
+      "case": "T07 刷新后本地记录保留",
+      "ok": true,
+      "detail": "刷新前 2/89% → 刷新后 2/89%"
+    },
+    {
+      "case": "T08 取消清除时数据不变",
+      "ok": true,
+      "detail": "sessions=2"
+    },
+    {
+      "case": "T08b 确认后清空",
+      "ok": true,
+      "detail": "sessions=0"
+    },
+    {
+      "case": "T04c 英语题库 6/8=75 分",
+      "ok": true,
+      "detail": "{\"score\": \"75 分\", \"right\": \"6\", \"wrong\": \"2\", \"time\": \"5 秒\", \"wrong_items\": 2}"
+    },
+    {
+      "case": "T04d 错题重练题数=2",
+      "ok": true,
+      "detail": "wrong_items=2"
+    },
+    {
+      "case": "T04e 计算机题库全对 100 分",
+      "ok": true,
+      "detail": "{\"score\": \"100 分\", \"right\": \"8\", \"wrong\": \"0\", \"time\": \"5 秒\", \"wrong_items\": 0}"
+    },
+    {
+      "case": "T09 键盘 1-4 作答 / Enter 下一题",
+      "ok": true,
+      "detail": "answersGiven=1, advanced=True"
+    },
+    {
+      "case": "T10 375px 无横向溢出",
+      "ok": true,
+      "detail": "{\"sw\": 375, \"cw\": 375, \"w\": 375}"
+    },
+    {
+      "case": "T10b 375px 完成整轮答题",
+      "ok": true,
+      "detail": "{\"score\": \"100 分\", \"right\": \"8\", \"wrong\": \"0\", \"time\": \"4 秒\", \"wrong_items\": 0}"
+    },
+    {
+      "case": "T10c 768px 无横向溢出",
+      "ok": true,
+      "detail": "{\"sw\": 768, \"cw\": 768, \"w\": 768}"
+    },
+    {
+      "case": "T11 无 JavaScript 运行错误",
+      "ok": true,
+      "detail": "pageerrors=[]"
+    },
+    {
+      "case": "T11b 无 console error",
+      "ok": true,
+      "detail": "console_errors=[]"
+    }
+  ],
+  "console_errors": [],
+  "page_errors": []
+}
