@@ -1,0 +1,17 @@
+{
+  "checkedAt": "2026-10-23T08:53:24.234102+00:00",
+  "metadata": {
+    "duration": 85.0,
+    "streams": [
+      "Stream #0:0[0x1](eng): Video: h264 (High) (avc1 / 0x31637661), yuv420p(tv, bt470bg/unknown/unknown, progressive), 1920x1080 [SAR 1:1 DAR 16:9], 444 kb/s, 25 fps, 25 tbr, 12800 tbn (default)",
+      "Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, mono, fltp, 160 kb/s (default)"
+    ]
+  },
+  "fullDecode": "PASS (all video and audio frames decoded without error)",
+  "audioLevels": [
+    "[Parsed_volumedetect_0 @ 000002077423d380] mean_volume: -19.8 dB",
+    "[Parsed_volumedetect_0 @ 000002077423d380] max_volume: -2.7 dB"
+  ],
+  "sizeBytes": 6485645,
+  "contactSheet": "evidence/video-20261023/contact-sheet.jpg"
+}

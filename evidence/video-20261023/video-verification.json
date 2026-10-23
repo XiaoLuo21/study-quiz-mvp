@@ -1,0 +1,35 @@
+{
+  "output\\playwright\\quizlab-demo-20261023\\public-live-raw.webm": {
+    "duration": 88.32,
+    "streams": [
+      "Stream #0:0(eng): Video: vp8, yuv420p(progressive), 1600x800, SAR 1:1 DAR 2:1, 25 fps, 25 tbr, 1k tbn (default)"
+    ]
+  },
+  "evidence\\quizlab-demo-20261023-clean.mp4": {
+    "duration": 84.96000000000001,
+    "streams": [
+      "Stream #0:0[0x1](eng): Video: h264 (High) (avc1 / 0x31637661), yuv420p(tv, bt470bg/unknown/unknown, progressive), 1920x1080 [SAR 1:1 DAR 16:9], 451 kb/s, 25 fps, 25 tbr, 12800 tbn (default)"
+    ]
+  },
+  "evidence\\quizlab-demo-20261023.mp4": {
+    "duration": 85.0,
+    "streams": [
+      "Stream #0:0[0x1](eng): Video: h264 (High) (avc1 / 0x31637661), yuv420p(tv, bt470bg/unknown/unknown, progressive), 1920x1080 [SAR 1:1 DAR 16:9], 444 kb/s, 25 fps, 25 tbr, 12800 tbn (default)",
+      "Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, mono, fltp, 160 kb/s (default)"
+    ]
+  },
+  "output\\playwright\\quizlab-demo-20261023\\narration.wav": {
+    "duration": 85.0,
+    "streams": [
+      "Stream #0:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 48000 Hz, mono, s16, 768 kb/s"
+    ]
+  },
+  "render": {
+    "trimOffset": 3.366,
+    "publicSite": "https://xiaoluo21.github.io/study-quiz-mvp/",
+    "durationTarget": 85,
+    "narration": "AI synthesized Chinese voice; user supplied script",
+    "subtitles": "Speech timestamp aligned captions",
+    "format": "1920x1080 H.264 / AAC"
+  }
+}

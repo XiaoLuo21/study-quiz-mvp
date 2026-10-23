@@ -1,0 +1,47 @@
+[
+  {
+    "section": 1,
+    "start": 0,
+    "end": 12,
+    "text": "大家好，这是我做的学习自测网页，叫知测 QuizLab。它能帮我们在学完知识后，快速检查自己到底掌握了多少。",
+    "voice": "zh-CN-XiaoxiaoNeural",
+    "originalDuration": 10.54,
+    "tempo": 0.9245614035087718
+  },
+  {
+    "section": 2,
+    "start": 12,
+    "end": 27,
+    "text": "打开网站，不用注册登录。首页有英语六级、AI 通识和计算机基础三个题库。我选择 AI 通识，直接开始测试。",
+    "voice": "zh-CN-XiaoxiaoNeural",
+    "originalDuration": 11.83,
+    "tempo": 0.8215277777777777
+  },
+  {
+    "section": 3,
+    "start": 27,
+    "end": 47,
+    "text": "每组有八道题。点击选项后，系统会立即判断对错，并给出知识点解析。比如我故意选错一道，错误选项标红，正确答案标绿，很直观。",
+    "voice": "zh-CN-XiaoxiaoNeural",
+    "originalDuration": 13.8,
+    "tempo": 0.7113402061855671
+  },
+  {
+    "section": 4,
+    "start": 47,
+    "end": 67,
+    "text": "做完后，系统自动生成成绩报告，包括得分、正确题数和答题用时。还可以一键重练本轮错题，答对之后更新成绩，不用整套题重新做。",
+    "voice": "zh-CN-XiaoxiaoNeural",
+    "originalDuration": 13.54,
+    "tempo": 0.6979381443298969
+  },
+  {
+    "section": 5,
+    "start": 67,
+    "end": 85,
+    "text": "返回首页，还能看到保存在本机的练习次数和历史正确率。网站用纯前端开发，部署在 GitHub Pages 上，手机和电脑都能打开。以上就是我的 MVP 演示，谢谢大家。",
+    "voice": "zh-CN-XiaoxiaoNeural",
+    "originalDuration": 16.37,
+    "tempo": 0.9408045977011495
+  }
+]

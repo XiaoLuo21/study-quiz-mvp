@@ -1,0 +1,161 @@
+{
+  "url": "https://xiaoluo21.github.io/study-quiz-mvp/",
+  "startedAt": "2026-10-23T08:40:40.763Z",
+  "preflight": true,
+  "browser": "156.0.8078.4",
+  "viewport": {
+    "width": 1600,
+    "height": 800
+  },
+  "actions": [
+    {
+      "targetSecond": 12,
+      "actualSecond": 0.539,
+      "action": "Scroll from home to the three course cards"
+    },
+    {
+      "targetSecond": 20,
+      "actualSecond": 1.13,
+      "action": "Select AI general knowledge"
+    },
+    {
+      "targetSecond": 24.5,
+      "actualSecond": 1.486,
+      "action": "Start the selected eight-question quiz"
+    },
+    {
+      "targetSecond": 28.3,
+      "actualSecond": 1.976,
+      "action": "Q1: answer correctly with B"
+    },
+    {
+      "targetSecond": 33,
+      "actualSecond": 2.332,
+      "action": "Advance to Q2"
+    },
+    {
+      "targetSecond": 35.5,
+      "actualSecond": 2.795,
+      "action": "Q2: deliberately choose wrong answer A"
+    },
+    {
+      "targetSecond": 40,
+      "actualSecond": 3.315,
+      "action": "Advance to Q3"
+    },
+    {
+      "targetSecond": 40.4,
+      "actualSecond": 3.773,
+      "action": "Q3: select correct visible option"
+    },
+    {
+      "targetSecond": 41.15,
+      "actualSecond": 4.246,
+      "action": "Advance to Q4"
+    },
+    {
+      "targetSecond": 41.55,
+      "actualSecond": 4.687,
+      "action": "Q4: select correct visible option"
+    },
+    {
+      "targetSecond": 42.3,
+      "actualSecond": 5.149,
+      "action": "Advance to Q5"
+    },
+    {
+      "targetSecond": 42.699999999999996,
+      "actualSecond": 5.608,
+      "action": "Q5: select correct visible option"
+    },
+    {
+      "targetSecond": 43.45,
+      "actualSecond": 6.08,
+      "action": "Advance to Q6"
+    },
+    {
+      "targetSecond": 43.85,
+      "actualSecond": 6.543,
+      "action": "Q6: select correct visible option"
+    },
+    {
+      "targetSecond": 44.6,
+      "actualSecond": 6.988,
+      "action": "Advance to Q7"
+    },
+    {
+      "targetSecond": 45,
+      "actualSecond": 7.455,
+      "action": "Q7: select correct visible option"
+    },
+    {
+      "targetSecond": 45.75,
+      "actualSecond": 7.913,
+      "action": "Advance to Q8"
+    },
+    {
+      "targetSecond": 46.15,
+      "actualSecond": 8.374,
+      "action": "Q8: select correct visible option"
+    },
+    {
+      "targetSecond": 47.5,
+      "actualSecond": 8.871,
+      "action": "Submit the eight real answers and show the score report"
+    },
+    {
+      "targetSecond": 53.5,
+      "actualSecond": 8.943,
+      "action": "Show the current-round wrong-question review and retry control"
+    },
+    {
+      "targetSecond": 57.5,
+      "actualSecond": 9.38,
+      "action": "Retry only the one wrong question"
+    },
+    {
+      "targetSecond": 59.5,
+      "actualSecond": 9.819,
+      "action": "Answer the retry correctly with C"
+    },
+    {
+      "targetSecond": 62.5,
+      "actualSecond": 10.134,
+      "action": "Show the retry score report"
+    },
+    {
+      "targetSecond": 67,
+      "actualSecond": 10.43,
+      "action": "Return to the course collection"
+    },
+    {
+      "targetSecond": 68,
+      "actualSecond": 10.46,
+      "action": "Scroll to this device learning record"
+    },
+    {
+      "targetSecond": 73,
+      "actualSecond": 11.36,
+      "action": "Reload the public deployment to demonstrate persisted learning records"
+    },
+    {
+      "targetSecond": 78.5,
+      "actualSecond": 12.059,
+      "action": "Return to the home hero for the closing statement"
+    },
+    {
+      "targetSecond": 85,
+      "actualSecond": 12.059,
+      "action": "Finish the recording"
+    }
+  ],
+  "errors": [],
+  "httpStatus": 200,
+  "liveTitle": "知测 QuizLab · 学过的知识，值得被记住",
+  "firstReport": "← 返回题库\n本轮学习记录\n✳\n这一轮，完成得很认真。\n\n基础不错，再补齐几个易错点。\n\n88 分\n7\n回答正确\n1\n需要复习\n7 秒\n本轮用时\n本轮错题回顾\n以下哪种提示词更有助于获得稳定输出？\n正确答案：明确目标、输入和约束。清晰的任务目标、相关上下文、格式和约束通常更容易得到可检验的结果。\n重练本轮错题 ↗\n再练一次\n返回题库",
+  "retryReport": "← 返回题库\n本轮学习记录\n✳\n这一轮，完成得很认真。\n\n全对！保持这份稳定的好状态。\n\n100 分\n1\n回答正确\n0\n需要复习\n1 秒\n本轮用时\n本轮错题回顾\n\n本轮全部答对，没有错题。\n\n重练本轮错题 ↗\n再练一次\n返回题库",
+  "storageBeforeReload": "{\"sessions\":2,\"correct\":8,\"total\":9}",
+  "storageAfterReload": "{\"sessions\":2,\"correct\":8,\"total\":9}",
+  "actualInteractionDuration": 12.059,
+  "finishedAt": "2026-10-23T08:40:55.209Z"
+}
